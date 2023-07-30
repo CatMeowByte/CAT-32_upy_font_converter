@@ -57,6 +57,11 @@ function slice_draw() {
   for (let y = 0; y < (DATA_IMAGE.height / DATA_CHAR_H); y++) {
     const row = document.createElement("tr");
     for (let x = 0; x < (DATA_IMAGE.width / DATA_CHAR_W); x++) {
+      let idx = (y*(DATA_IMAGE.width/DATA_CHAR_W)) + x;
+
+      // Skip if over charset length
+      if (idx >= DATA_CHARSET.length) {continue}
+
       const cell = document.createElement("td");
         cell.classList.add("slice-cell");
         cell.textContent = DATA_CHARSET[(y * (DATA_IMAGE.width/DATA_CHAR_W)) + x];
