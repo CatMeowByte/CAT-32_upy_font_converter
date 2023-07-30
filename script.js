@@ -35,7 +35,7 @@ CODE_DOWNLOAD.addEventListener("click", cb_download);
 
 function is_valid_variable_name(str) {
   // Regular expression to check if the string is a valid variable name
-  const regex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+  const regex = /^[a-zA-Z][a-zA-Z0-9_]*$/;
   return regex.test(str);
 }
 
