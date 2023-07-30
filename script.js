@@ -183,7 +183,7 @@ function cb_image_load(event) {
 }
 
 function cb_download() {
-  const file_name = DATA_NAME_CODE + ".py";
+  const file_name = "font_" + DATA_NAME_CODE + ".py";
   const content = CODE_PREVIEW.textContent;
   download_file(file_name, content);
 }
