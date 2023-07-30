@@ -33,6 +33,12 @@ INPUT_UPDATE.addEventListener("click", cb_update);
 
 CODE_DOWNLOAD.addEventListener("click", cb_download);
 
+function is_valid_variable_name(str) {
+  // Regular expression to check if the string is a valid variable name
+  const regex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+  return regex.test(str);
+}
+
 function image_to_bitarray(ctx) {
   let bit_raw = ""
   for (let y = 0; y < DATA_IMAGE.height; y++) {
@@ -206,6 +212,11 @@ function cb_update() {
 
   if (!DATA_IMAGE || !DATA_NAME || !DATA_NAME_CODE || !DATA_CHAR_W || !DATA_CHAR_H || !DATA_CHARSET) {
     alert("Image file and parameter must be provided!");
+    return;
+  }
+
+  if (!is_valid_variable_name(DATA_NAME_CODE)) {
+    alert("Code name must be a valid variable name!");
     return;
   }
 
