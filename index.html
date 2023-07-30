@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CAT-32 Font Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gap">
+  <div class="panel">
+    <div class="col">
+      <div class="row">
+        <input type="file" id="INPUT_IMAGE" accept="image/*" class="hidden">
+        <label for="INPUT_IMAGE" id="INPUT_IMAGE_LABEL">Choose File</label>
+      </div>
+
+      <div class="row pad-top">
+        <label for="INPUT_NAME" class="third">Name</label>
+        <input type="text" id="INPUT_NAME" placeholder="My cool font YO!" class="two-third">
+      </div>
+
+      <div class="row pad-top">
+        <label for="INPUT_NAME_CODE" class="third">Code Name</label>
+        <input type="text" id="INPUT_NAME_CODE" placeholder="coolfont_12" class="two-third">
+      </div>
+
+      <div class="row pad-top">
+        <label for="INPUT_COMMENT" class="third">Comment</label>
+        <input type="text" id="INPUT_COMMENT" placeholder="By CAT! also check out https://wikipedia.org" class="two-third">
+      </div>
+
+      <div class="row pad-top">
+        <label class="third">Char Size (px)</label>
+        <div class="row two-third">
+          <input type="number" id="INPUT_CHAR_WIDTH" placeholder="8" class="half merge-r">
+          <input type="number" id="INPUT_CHAR_HEIGHT" placeholder="12" class="half merge-l">
+        </div>
+      </div>
+
+      <div class="row pad-top">
+        <label for="INPUT_CHARSET" class="third">Char Set</label>
+        <textarea id="INPUT_CHARSET" rows="8" placeholder="&#32;&#33;&#34;&#35;&#36;&#37;&#38;&#39;&#40;&#41;&#42;&#43;&#44;&#45;&#46;&#47;
+&#48;&#49;&#50;&#51;&#52;&#53;&#54;&#55;&#56;&#57;&#58;&#59;&#60;&#61;&#62;&#63;
+&#64;&#65;&#66;&#67;&#68;&#69;&#70;&#71;&#72;&#73;&#74;&#75;&#76;&#77;&#78;&#79;
+&#80;&#81;&#82;&#83;&#84;&#85;&#86;&#87;&#88;&#89;&#90;&#91;&#92;&#93;&#94;&#95;
+&#96;&#97;&#98;&#99;&#100;&#101;&#102;&#103;&#104;&#105;&#106;&#107;&#108;&#109;&#110;&#111;
+&#112;&#113;&#114;&#115;&#116;&#117;&#118;&#119;&#120;&#121;&#122;&#123;&#124;&#125;&#126;&#8718;
+&#9617;&#9618;&#9619;&#9608;&#176;&#956;&#181;" class="two-third">
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~°
+</textarea>
+      </div>
+
+      <div class="row pad-top">
+        <button id="INPUT_UPDATE">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="HIDDEN_PREVIEW" class="col gap hidden">
+    <div class="panel">
+      <div class="box-preview">
+        <div id="SLICE_CONTAINER">
+          <table id="SLICE_GRID"></table>
+          <img id="IMAGE_PREVIEW">
+        </div>
+      </div>
+    </div>
+
+    <div class="panel col">
+      <button id="CODE_DOWNLOAD">Download Module</button>
+      <pre id="CODE_PREVIEW" class="pad-top">{}</pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
