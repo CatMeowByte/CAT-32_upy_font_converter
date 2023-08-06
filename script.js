@@ -91,14 +91,8 @@ function code_write(bit) {
   // Space
   write("");
 
-  // Object
-  write(DATA_NAME_CODE + " = _CAT32_font()");
-
-  // Space
-  write("");
-
   // Class
-  write("class _CAT32_font:");
+  write("class _CAT32_font():");
 
   // Init
   write(" def __init__(self):");
@@ -161,7 +155,13 @@ function code_write(bit) {
 
   // Char
   write(" @property");
-  text += " def char(self): return self._char";
+  write(" def char(self): return self._char");
+
+  // Space
+  write("");
+
+  // Object
+  text += DATA_NAME_CODE + " = _CAT32_font()";
 
   return text;
 }
