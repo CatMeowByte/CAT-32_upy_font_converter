@@ -120,15 +120,16 @@ function code_write(bit) {
 
       list.push(ord);
       text += "   " + ord + ": 0b";
+      let tbit = "";
       // Per pixel
       for (let py = 0; py < DATA_CHAR_H; py++) {
         for (let px = 0; px < DATA_CHAR_W; px++) {
           let pos_x = (tx * DATA_CHAR_W) + px
           let pos_y = DATA_IMAGE.width * ((ty*DATA_CHAR_H) + py)
-          text = bit[pos_x + pos_y] + text;
+          tbit = bit[pos_x + pos_y] + tbit;
         }
       }
-      text += ", # " + DATA_CHARSET[idx];
+      text += tbit + ", # " + DATA_CHARSET[idx];
       text += "\n";
     }
   }
