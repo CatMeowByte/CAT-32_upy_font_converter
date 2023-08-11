@@ -17,7 +17,7 @@ Please note that this converter supports only monospaced fonts. Special characte
 ## Usage Example
 
 ```python
-import myfont  # Import the CAT-32 font module
+from font_myfont import myfont  # Import the CAT-32 font module object
 
 # Accessing font properties
 width = myfont.w  # Get the font width in pixels
