@@ -10,7 +10,7 @@ The CAT-32 font module, when imported, provides a global object representing the
 
 + **w**: Represents the width of the letter in pixels.
 + **h**: Represents the height of the letter in pixels.
-+ **char**: A dictionary containing the raw bit representation of each letter. The dictionary keys are the number ordinals of the respective letters (e.g., `65` for "A"), and the values are pixels as raw bit patterns (e.g., `0b00001110101011101010`).
++ **char**: A dictionary containing the raw bit representation of each letter. The dictionary keys are the number ordinals of the respective letters (e.g., `65` for "A"), and the values are pixels as raw bit patterns (e.g., `0b00001110101011101010`) in little-endian ordering.
 
 Please note that this converter supports only monospaced fonts. Special characters like space are not included, as their behavior is typically handled by the writer module.
 
@@ -30,7 +30,7 @@ letter = myfont.char[ord("A")]  # Get the raw bit pixel data for letter "A", e.g
 
 ## Custom Writer
 
-The raw bit data for each letter is sorted by row to column, starting from the top-left pixel and walking to the right, then going down to the next row, left to right, and so on until the bottom-right pixel.
+The raw bit data for each letter is sorted in little-endian bit ordering. So the leftmost bit is the bottom-right pixel and the rightmost bit is the top-left pixel. It is designed to sort like so for easy iteration with the right-shift operator `>>` to read the bit, and then to be drawn pixel by pixel in order row to column (X loop inside Y loop), starting from the top-left pixel and walking to the right, then going down to the next row, left to right, and so on until the bottom-right pixel.
 
 Users can utilize this data to create their own font writer by iterating through the bits accordingly.
 

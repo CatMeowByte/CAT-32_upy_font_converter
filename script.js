@@ -125,7 +125,7 @@ function code_write(bit) {
         for (let px = 0; px < DATA_CHAR_W; px++) {
           let pos_x = (tx * DATA_CHAR_W) + px
           let pos_y = DATA_IMAGE.width * ((ty*DATA_CHAR_H) + py)
-          text += bit[pos_x + pos_y];
+          text = bit[pos_x + pos_y] + text;
         }
       }
       text += ", # " + DATA_CHARSET[idx];
