@@ -91,20 +91,14 @@ function code_write(bit) {
   // Space
   write("");
 
-  // Class
-  write("class _CAT32_font():");
-
-  // Init
-  write(" def __init__(self):");
-
   // W
-  write("  self._w = " + DATA_CHAR_W);
+  write("w = " + DATA_CHAR_W);
 
   // H
-  write("  self._h = " + DATA_CHAR_H);
+  write("h = " + DATA_CHAR_H);
 
   // Char begin
-  write("  self._char = {");
+  write("char = {");
 
   // Per char
   for (let ty = 0; ty < (DATA_IMAGE.height / DATA_CHAR_H); ty++) {
@@ -119,7 +113,7 @@ function code_write(bit) {
       if (ord == 32) {continue}
 
       list.push(ord);
-      text += "   " + ord + ": 0b";
+      text += " " + ord + ": 0b";
       let tbit = "";
       // Per pixel
       for (let py = 0; py < DATA_CHAR_H; py++) {
@@ -135,34 +129,7 @@ function code_write(bit) {
   }
 
   // Char end
-  write("  }");
-
-  // Space
-  write("");
-
-  // W
-  write(" @property");
-  write(" def w(self): return self._w");
-
-  // Space
-  write("");
-
-  // H
-  write(" @property");
-  write(" def h(self): return self._h");
-
-  // Space
-  write("");
-
-  // Char
-  write(" @property");
-  write(" def char(self): return self._char");
-
-  // Space
-  write("");
-
-  // Object
-  text += DATA_NAME_CODE + " = _CAT32_font()";
+  text += "}";
 
   return text;
 }
@@ -195,7 +162,7 @@ function cb_image_load(event) {
 }
 
 function cb_download() {
-  const file_name = "font_" + DATA_NAME_CODE + ".py";
+  const file_name = DATA_NAME_CODE + ".py";
   const content = CODE_PREVIEW.textContent;
   download_file(file_name, content);
 }
